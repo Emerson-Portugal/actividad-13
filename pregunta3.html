@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <script src="ramda.min.js"></script>
+    <script>
+        function abc(a, b, c) {
+            return a + b + c;
+        }
+        // Utilizo la libreria para realizar la suma
+        let curriedAbc = R.curry(abc);
+        console.log(curriedAbc(2)(3)(4)); // 9
+        console.log(curriedAbc(2, 3)(4)); // 9
+        console.log(curriedAbc(2)(3, 4)); // 9
+        console.log(curriedAbc(2, 3, 4)); // 9
+    </script>
+</body>
+
+</html>

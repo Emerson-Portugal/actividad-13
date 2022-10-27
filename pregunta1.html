@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <script src="ramda.min.js"></script>
+    <script>
+        var total = 0;
+        function  delayInvoc (a) {
+            //  [...arguments] -> Guardara la informacion la iteracion
+            let result = [...arguments].reduce((acc, num) => acc + num);
+            // delayInvoc.bind(this, result) -> se llamara a si mismo para recibir mas de 2 parametros 
+            let newSum = delayInvoc.bind(this, result);
+            // newSum.result -> te permitra unir los resultados de 2 a mas 
+            newSum.result = result;
+            return newSum;
+        };
+        total = delayInvoc("Hello")
+        console.log(total); 
+        total = delayInvoc("Hello ") ("is ") ("no ") ("spoon ") ()
+        console.log(total); 
+    </script>
+</body>
+
+</html>
